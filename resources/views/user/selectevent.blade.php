@@ -16,7 +16,7 @@
                                 <div style="height:100px;width:320px ;  word-break:break-all">
                                 <p><strong>{{$event->title}}</strong></p>
                                 </div>
-                                <a href="{{URL('event_details')}}/{{Auth::user()->id}}" type="button" class="btn btn-default" id="details" name="details" style="margin-right:10px">Show details</a>
+                                <a href="{{URL('details')}}/{{$event->id}}" type="button" class="btn btn-default" id="details" name="details" style="margin-right:10px">Show details</a>
                                 <a href="{{URL('/edit')}}/{{$event->id}}" type="button" class="btn btn-default" id="details" name="details">Edit Event</a>
 
                                 <a href="{{URL('delete')}}/{{$event->id}}"><i class="fa fa-trash fa-2x" aria-hidden="true" style="color:red; margin-left:10px"></i></a> 

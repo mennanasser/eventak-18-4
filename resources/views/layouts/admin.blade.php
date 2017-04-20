@@ -24,6 +24,11 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <!--   <link href="{{asset('/css/pe-icon-7-stroke.css')}}" rel="stylesheet" /> -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script type="text/javascript" src="{{URL::asset('js/jquery-3.1.1.js')}}">
+    </script>
+   
 </head>
 <body>
 
@@ -56,12 +61,7 @@
                         <p>Edit Profile</p>
                     </a>
                 </li>
-                <li >
-                    <a href="#">
-                        <i class="fa fa-bell-o" aria-hidden="true"></i>
-                        <p>Notifications</p>
-                    </a>
-                </li>
+               
             </ul>
     	</div>
     </div>
@@ -78,27 +78,7 @@
                     </button>
                 </div>
                 <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-left">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-globe"></i>
-                                <b class="caret"></b>
-                                <span class="notification">5</span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Notification 1</a></li>
-                                <li><a href="#">Notification 2</a></li>
-                                <li><a href="#">Notification 3</a></li>
-                                <li><a href="#">Notification 4</a></li>
-                                <li><a href="#">Another notification</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="">
-                                <i class="fa fa-search"></i>
-                            </a>
-                        </li>
-                    </ul>
+                 
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                             <a href="{{URL('create')}}">
@@ -129,20 +109,17 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    
                     @yield('content')
                 
                 </div>
             </div>
         </div>  
     </div>
-
 </div>
+
+
 
 </body>
     <script src="{{URL::asset('js/jquery-1.10.2.js')}}" type="text/javascript"></script>
 	<script src="{{URL::asset('js/bootstrap.min.js')}}" type="text/javascript"></script>
 </html>
-
-
-edit manage add creat

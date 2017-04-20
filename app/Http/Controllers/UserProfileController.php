@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use App\User;
 use App\Event;
 use auth;
 use DB;
+use App\EventUser;
+
 
 class UserProfileController extends Controller
 {
@@ -16,7 +19,8 @@ class UserProfileController extends Controller
         $title  = "View $user->name's Profile";
         $active = 'userprofile';
         $events = Event::where('user_id' , auth::id())->get();
-		return view('user.userprofile',compact('user','events','title','active'));
+        $event_user = EventUser::where('interested','=','1')->get();
+		return view('user.userprofile',compact('user','events','title','active','event_user'));
 	}
 
 	// public function display()
@@ -50,11 +54,14 @@ class UserProfileController extends Controller
             $this->validate($request,[
             'name' => 'required|string|max:255',
             'email' => 'required|string|max:255',
+            'oldpassword' => 'required|string|min:6',
             'password' => 'required|string|min:6|confirmed',
             ]);
             
             $user->name     = $request->name;
             $user->email    = $request->email;
+            if($request->oldpassword == (Crypt::decrypt($user->password)))
+            {
             if($request->password){
             $user->password = bcrypt($request->password);
              }
@@ -63,7 +70,10 @@ class UserProfileController extends Controller
              }
             $user->save();
             return view("user.userprofile",compact('user','events','title','active'));
-        
+        }else{
+            return "Please Enter the correct old password";
+        }
+
         }else {
             return view("user.userprofile",compact('user','events','title','active'));
         }

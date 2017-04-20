@@ -38,7 +38,7 @@ tr:nth-child(even) {
 </head>
 <body id="top">
 <!-- NAV -->
-
+@if($event)
         <nav class="navbar navbar-default navbar-fixed">
 
        @if ((Auth::guest()))
@@ -57,29 +57,7 @@ tr:nth-child(even) {
                         <span class="icon-bar"></span>
                     </button>
                 </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-left">
-                       
-                        <li class="dropdown">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-globe"></i>
-                            <b class="caret"></b>
-                            <span class="notification">5</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Notification 1</a></li>
-                            <li><a href="#">Notification 2</a></li>
-                            <li><a href="#">Notification 3</a></li>
-                            <li><a href="#">Notification 4</a></li>
-                            <li><a href="#">Another notification</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                     <a href="">
-                        <i class="fa fa-search"></i>
-                    </a>
-                </li>
-            </ul>
+             
 
             <ul class="nav navbar-nav navbar-right">
         
@@ -153,7 +131,7 @@ tr:nth-child(even) {
     <br>
     @elseif (!(Auth::guest()) &&  ($event->user_id) == Auth::user()->id)
      <a href="#"><p><i class="fa fa-user-circle" aria-hidden="true"></i>
-            <a href="{{URL('/profile/user')}}">{{$event->createEvent->name}}  </a>
+            <a href="{{URL('/userprofile')}}">{{$event->createEvent->name}}  </a>
        </p></a>
     <br>
     <br>
@@ -222,14 +200,15 @@ tr:nth-child(even) {
 </table>
 @endif
 
-
+@else
   
-
+  <h1>Event Has No Longer Exists</h1>
+@endif
 
 </body>
  <script type="text/javascript">
 
-
+@if($event)
       $('#interested').on('click',function(event){
             event.preventDefault();
             $.ajax({
@@ -249,7 +228,7 @@ tr:nth-child(even) {
                 }
             });              
       });
-
+@endif
     </script>
     <script src="{{URL::asset('js/jquery-1.10.2.js')}}" type="text/javascript"></script>
     <script src="{{URL::asset('js/bootstrap.min.js')}}" type="text/javascript"></script>

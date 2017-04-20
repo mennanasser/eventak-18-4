@@ -14,7 +14,19 @@
                                 <br>
                                 <div style="height:100px;width:320px ;  word-break:break-all">
                                 <p><strong>{{$event->title}}</strong></p>
-                               </div>
+                                 <div>
+                                       <?php $count= 0; ?>
+                                         @foreach($event_user as $e)
+                                            @if($event->id == $e->event_id)
+                                               <?php ++$count ?>
+                                                
+                                            @endif
+
+                                        @endforeach
+                                        <p>{{$count}}</p>
+
+                                 </div>
+                                 </div>
                                 <p>{{$event->approved}}</p>
                                 <a href="{{URL('details')}}/{{$event->id}}" type="button" class="btn btn-default" id="details" name="details" style="margin-right:10px">Show details</a>
                                    <a href="{{URL('/edit')}}/{{$event->id}}" type="button" class="btn btn-basic" id="details" name="details">Edit Event</a>

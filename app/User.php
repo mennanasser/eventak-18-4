@@ -48,4 +48,9 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Event','notify_user','event_id','user_id');
     }
 
+
+    public function notification(){
+        return $this->hasMany('App\Notification');
+    }
+
 }

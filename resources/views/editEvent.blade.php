@@ -174,7 +174,7 @@
 	
 				<div class="wthree_grid">
 				<div>
-				<input type="file" id="image" name="image" >
+				<h5>Event cover *</h5><input type="file" name="image" >
 				</div>
 				
 				<div class="w3_main_grid">

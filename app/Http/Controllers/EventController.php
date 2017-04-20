@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Notification;
 use App\Event;
 use App\Location;
 use App\Feedback;
 use App\User;
 use App\Category;
 use auth;
+use App\Notifications\AddEvent;
 
 class EventController extends Controller
 {
@@ -44,14 +46,17 @@ class EventController extends Controller
         $event->user_id     = Auth::id();
         $event->category_id = $request->category;
         $event->location_id = $request->location;
-        $event->save();
+        if($event->save()){
+            $user = User::all();
+            Notification::send($user,new AddEvent($event));
+            }
 
         $request->session()->flash('alert-success', 'Event has submited!');
-        return redirect('/create');   
+        return redirect('/userprofile');   
         // return \Redirect::back()->withSuccess( 'Message you want show in View' );    
         
     }
-
+    
 
     public function showEvents($id)
     {

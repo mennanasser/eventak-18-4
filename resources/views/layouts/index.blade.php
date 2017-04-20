@@ -78,8 +78,9 @@
 @yield('content')
 <div class="wrapper row4">
   <footer id="footer" class="clear"> 
-    <div class="one_third first">
-      <h6 class="title">about</h6>
+    <div class="one_third first" style="margin-left:20px; " >
+      <h1>about</h1>
+      <hr style="margin-bottom:20px ;">
       <address class="push30">
       Company Name<br>
       Street Name &amp; Number<br>
@@ -91,7 +92,40 @@
         <li class="push10"><span class="icon-phone"></span> +00 (123) 456 7890</li>
         <li><span class="icon-envelope-alt"></span> info@domain.com</li>
       </ul>
+     
     </div>
+
+    @if(!(Auth::guest()))
+    <div class="one_third first"></div>
+    <div class="one_third first">
+ 
+        <h1>Your Feedback is valuable to us</h1>
+        <hr style="margin-bottom:15px ;">
+
+        <form action="{{ url('contact')}}" method="POST">
+          {{ csrf_field() }}
+          
+          <br>
+          <div class="form-group">
+            <label name="subject">Subject:</label>
+            <input id="subject" name="subject" class="form-control">
+          </div>
+          <br>
+
+          
+
+          <div class="form-group">
+            <label name="message">Message:</label>
+            <textarea id="message" name="message" class="form-control"></textarea>
+          </div>
+          <br>
+
+          <input type="submit" value="Send Message">
+        </form>
+      
+    </div>
+    @endif
+
   </footer>
 </div>
 <div class="wrapper row5">

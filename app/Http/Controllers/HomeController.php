@@ -29,10 +29,10 @@ class HomeController extends Controller
     //     return view('home');
     // }
 
-    public function index()
-    {
-        $events = Event::all();
-        $user = User::find(auth::id());
-        return view('userprofile',compact('user','events'));
-    }
+    // public function index()
+    // {
+    //     $events = Event::all();
+    //     $user = User::find(auth::id());
+    //     return view('userprofile',compact('user','events'));
+    // }
 }

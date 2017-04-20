@@ -24,12 +24,19 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <!--   <link href="{{asset('/css/pe-icon-7-stroke.css')}}" rel="stylesheet" /> -->
+
+    <style type="text/css"> 
+    .unread{
+        background-color: #e5e5e5;
+    }
+    </style>
+
 </head>
 <body>
 
 <div class="wrapper"> 
     
-    <div class="sidebar" style="background: url({{asset('css/images/sidebar-5.jpg')}});">  
+    <div class="sidebar" style="background: url({{asset('css/images/sidebar-5.jpg')}}); ">  
     	<div class="sidebar-wrapper">
             <ul class="nav">
                 <li>
@@ -80,12 +87,7 @@
                         <p>Rejected Events</p>
                     </a>
                 </li>
-                <li @if($active == '') class="active" @endif>
-                    <a href="#">
-                        <i class="fa fa-bell-o" aria-hidden="true"></i>
-                        <p>Notifications</p>
-                    </a>
-                </li>
+               
             </ul>
     	</div>
     </div>
@@ -103,20 +105,18 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-left">
-                        <li class="dropdown">
+                     <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-globe"></i>
                                 <b class="caret"></b>
-                                <span class="notification">5</span>
+                                 <span class="notification">{{count(auth()->user()->unreadNotifications)}}</span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Notification 1</a></li>
-                                <li><a href="#">Notification 2</a></li>
-                                <li><a href="#">Notification 3</a></li>
-                                <li><a href="#">Notification 4</a></li>
-                                <li><a href="#">Another notification</a></li>
+                                @foreach (auth()->user()->notifications as $notify)
+                                 <li><a href="{{URL('/details')}}/{{$notify->data['id']}}" class="{{$notify->read_at == null ? 'unread' : ''}} ">{{$notify->data['title']}} <?php $notify->markAsRead() ?></a></li>
+                                @endforeach
                             </ul>
-                        </li>
+                    </li>
                         <li>
                             <a href="">
                                 <i class="fa fa-search"></i>

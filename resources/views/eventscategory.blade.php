@@ -88,7 +88,7 @@ input[type=text]:focus {
         @foreach($events as $event)
             <li data-keywords="{{$event->title}}" class="one_quarter" >
                 <div class="post-img-content" >
-                      <a ><img  src="{{ asset($event->image)}}" alt="" style=' width:300px; height:200px;'></a>
+                      <a ><img  src="{{ asset($event->image)}}" alt="" style=' width:225px; height:225px;'></a>
                       <br><br>
                       <h6 class="nospace push10">{{$event->title}}</h6>
                       <p class="nospace push10">{{$event->location->title}}</p>

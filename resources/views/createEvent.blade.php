@@ -15,18 +15,16 @@
 </head>
 <body>
 	<nav class="navbar navbar-default ">
-		<a class="navbar-brand " href="{{URL('/')}}">Eventak</a>
+		<a class="navbar-brand " href="{{URL('/')}}" style="color:#00004d;font-weight: bold;">Eventak</a>
 
 		@if (!(Auth::guest()))
 		<ul class="nav navbar-nav">
 
 			<li class="dropdown active">
-				<a href="">
-					{{Auth::user()->name}}'s Profile
-					<b class="caret"></b>
-				</a>
+				<a href="" style="color:#00004d ;font-weight: bold;">{{Auth::user()->name}}'s Profile	
+					<b class="caret"></b></a>
 				<ul class="dropdown-menu">
-					<li><a href="{{URL('userprofile')}}">My Profile</a></li>
+					<li><a  href="{{URL('userprofile')}}">My Profile</a></li>
 					<li><a href="{{URL('editProfile')}}">Account Settings</a></li>
 					<li>
 						<a href="{{ route('logout') }}"
@@ -172,7 +170,7 @@
 			<div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
 				<div class="wthree_grid">
 					<div>
-						<input type="file" name="image" >
+					<h5>Event cover *</h5><input type="file" name="image" >
 					</div>
 				</div>
 				<br>

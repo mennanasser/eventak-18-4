@@ -1069,10 +1069,11 @@ body > .navbar-collapse[data-color="purple"]:after {
   border-bottom-width: 1px;
   font-size: 12px;
   text-transform: uppercase;
-  color: #9A9A9A;
-  font-weight: 400;
+  color: #00004d;
+  font-weight: bold;
   padding-bottom: 5px;
 }
+
 .table .td-actions .btn {
   opacity: 0.36;
   filter: alpha(opacity=36);
@@ -1532,7 +1533,8 @@ body > .navbar-collapse[data-color="purple"]:after {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 .navbar-default .navbar-nav > li > a:not(.btn) {
-  color: #9A9A9A;
+  color:#00004d;
+  font-weight: bold;
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:not(.btn):hover,
@@ -1835,6 +1837,9 @@ body > .navbar-collapse[data-color="purple"]:after {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);
   background-color: #FFFFFF;
   margin-bottom: 30px;
+  width: 340px;
+  margin-left: 0px;
+ 
 }
 .card .image {
   width: 100%;

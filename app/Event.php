@@ -36,4 +36,7 @@ class Event extends Model
         return $this-> hasMany('App\Comment');
     }
 
+    public function notification(){
+        return $this->hasMany('App\Notification');
+    }
 }

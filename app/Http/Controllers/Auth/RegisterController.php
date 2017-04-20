@@ -72,6 +72,7 @@ class RegisterController extends Controller
             'gender' => $data['gender'],
             'image' => $data['image']->store("images"),
             'password' => bcrypt($data['password']),
+            
         ]);
           
     }
